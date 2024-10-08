@@ -29,3 +29,7 @@ python3 procesar_pdfs.py
 - Los archivos se descargarán en una carpeta llamada `descargados scripts`, que se creará automáticamente si no existe.
 - Si un enlace no se puede descargar, se mostrará un mensaje de error en la consola.
 - Asegúrate de tener los permisos necesarios para descargar los archivos desde los enlaces proporcionados.
+=======
+# Automatizaciones
+Scripts para automatizar descargas de PDFs y otras tareas.
+
