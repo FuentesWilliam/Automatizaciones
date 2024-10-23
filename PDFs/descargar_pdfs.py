@@ -6,7 +6,7 @@ import requests
 archivo_enlaces = 'enlaces.txt'
 
 # Directorio donde se guardarán los PDFs
-carpeta_descargas = './descargas test'
+carpeta_descargas = './descargas'
 
 # Función para descargar un PDF desde una URL
 def descargar_archivo(url):

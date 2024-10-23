@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import os
 import shutil
 import hashlib
@@ -14,11 +13,15 @@ if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
 # Archivo de salida para las consultas SQL
-output_file = 'presta_sql_inserts.txt'
+output_file = 'insert_attachment-lang.txt'
+# Archivo para almacenar la relación nombre_pdf -> hash
+output_nombre_hash = 'nombre_pdf_hash.txt'
 
-# Crear o vaciar el archivo de salida si ya existe
+# Crear o limpia archivo de salida si ya existe
 with open(output_file, 'w') as f:
     f.write('')
+with open(output_nombre_hash, 'w') as f_hash:
+    f_hash.write('')
 
 # Función para calcular el hash del nombre del archivo
 def calcular_hash(nombre_archivo):
@@ -58,7 +61,7 @@ for filename in os.listdir(input_dir):
 id_attachment_start = int(input("Introduce el id_attachment inicial: "))
 
 # Generar las consultas SQL en el formato solicitado
-with open(output_file, 'a') as f:
+with open(output_file, 'a') as f, open(output_nombre_hash, 'a') as f_hash:
     # *** Generar UNA sola consulta para ps_attachment ***
     attachment_values = []
     for attachment in attachments:
@@ -71,6 +74,12 @@ with open(output_file, 'a') as f:
                 file_size=attachment['file_size']
             )
         )
+
+        # Escribir la relación nombre -> hash en el archivo de asociación
+        f_hash.write("{original_name};{hash_name}\n".format(
+            original_name=attachment['original_name'],
+            hash_name=attachment['hash_name']
+        ))
 
     # Generar la consulta para ps_attachment con todos los VALUES
     insert_attachment = (
