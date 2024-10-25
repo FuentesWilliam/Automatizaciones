@@ -1,9 +1,6 @@
-.gitignore
-/.directory
+/.gitignore
 /PDFs/cargados servidor
 /PDFs/descargas
 /PDFs/para subir
-/PDFs/output.sql
+/PDFs/output.txt
 /excel
-/import/Cod_alternativos
-/import/Cod_oem
