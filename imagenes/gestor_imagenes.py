@@ -67,7 +67,7 @@ def generar_csv_rutas():
 
     # Procesamos la lista de fotos
     for foto in fotos:
-        foto_con_ruta = "https://uniontecnica.vrweb.cl/" + foto
+        foto_con_ruta = "https://uniontecnica.vrweb.cl/img/productos/" + foto
 
         # Extraemos la parte antes del ".jpg"
         referencia = foto.split(".")[0]
